@@ -50,6 +50,11 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
         pip install -e ./rosemary
+    
+    - name: Security audit for dependencies
+      run: |
+        pip install pip-audit
+        pip-audit --progress-spinner=off
 
     - name: Run tests with coverage
       run: |
